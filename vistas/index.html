@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Incidentes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Registro de Incidentes en Laboratorio</h1>
+	
+	<form id="incident-form" action="procesar_incidente.php" method="POST">
+        <!-- Advertencia -->
+        <label class="warning">La denuncia solo puede realizarse el mismo día en que ocurrió el incidente</label>
+		<br>
+        <!-- Laboratorio -->
+        <label for="laboratorio">Laboratorio:</label>
+        <select name="laboratorio" id="laboratorio" required>
+            <option value="">Seleccionar laboratorio</option>
+            <option value="Lab1">Lab. CISCO</option>
+            <option value="Lab1">Lab. Software</option>
+        </select>
+		<br>
+        <!-- Materia -->
+        <label>Materia:</label>
+        <div class="materias">
+            <button type="button">BDD</button>
+            <button type="button">Administracion de BDD</button>
+            <button type="button">Ofimantica</button>
+        </div>
+		<br>
+        <!-- Conocimiento de Infractor -->
+        <label>¿Tiene conocimiento de que existe un infractor?</label>
+        <input type="radio" id="infractor-si" name="infractor" value="si"> Sí
+        <input type="radio" id="infractor-no" name="infractor" value="no"> No
+
+		<br>
+        <!-- Datos del Infractor (Oculto por defecto) -->
+        <div id="infractor-detalles" style="display: none;">
+            <label>Seleccionar el cargo del infractor:</label>
+            <input type="radio" name="cargo[]" value="estudiante"> Estudiante
+            <input type="radio" name="cargo[]" value="docente"> Docente
+		<br>
+            <label for="cedula-infractor">Escribir el número de cédula del infractor:</label>
+            <input type="text" name="cedula_infractor" id="cedula-infractor">
+		<br>
+            <label for="nombre-infractor">Escribir el nombre completo del infractor:</label>
+            <input type="text" name="nombre_infractor" id="nombre-infractor">
+        </div>
+		<br>
+        <!-- Computadores -->
+        <label>Seleccionar el computador o computadores afectados en el incidente:</label>
+   
+            <div class="tabla">
+        <!-- Los botones se generarán aquí con JavaScript -->
+    </div>
+      		<br>
+        <!-- Tipo de fallo -->
+        <label for="tipo-fallo">Seleccionar el tipo de fallo:</label>
+        <select name="tipo_fallo" id="tipo-fallo" required>
+            <option value="">Seleccionar fallo</option>
+            <option value="software">Error en el programa (Software)</option>
+            <option value="hardware">Error en el equipo físico (Hardware)</option>
+            <option value="piezas">Falta de piezas físicas del equipo</option>
+        </select>
+		<br>
+        <!-- Observación -->
+        <label for="observacion">Escribir en sus propias palabras una observación del incidente:</label>
+				<br>
+        <textarea name="observacion" id="observacion" rows="4" required></textarea>
+		<br>
+        <!-- Botón Guardar -->
+        <button type="submit">Guardar</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
+	
+    
+
