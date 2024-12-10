@@ -23,47 +23,78 @@ $hora_actual = date('h:i A'); // Hora en formato 12 horas con AM/PM
     <title>Ficha de Incidente</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            background-color: #f0f2f5;
             color: #333;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
         }
         .ficha {
             background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 450px;
             width: 100%;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .ficha:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
         h1 {
-            font-size: 20px;
+            font-size: 24px;
             color: #007bff;
             text-align: center;
+            margin-bottom: 20px;
         }
         .info {
             margin-bottom: 15px;
         }
         .info label {
             font-weight: bold;
+            font-size: 14px;
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
         }
         .info p {
-            margin: 5px 0;
-            padding: 5px;
-            background: #f8f9fa;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            margin: 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 14px;
+            color: #333;
+        }
+        .info p:hover {
+            background: #eef2f7;
+            border-color: #d0d7e0;
         }
         .fecha-hora {
             text-align: center;
-            margin-top: 15px;
+            margin-top: 20px;
             font-size: 14px;
-            color: #555;
+            color: #666;
+        }
+        .fecha-hora p {
+            margin: 5px 0;
+        }
+        @media (max-width: 500px) {
+            .ficha {
+                padding: 20px;
+                border-radius: 8px;
+            }
+            h1 {
+                font-size: 20px;
+            }
+            .info p {
+                font-size: 13px;
+            }
         }
     </style>
 </head>
@@ -101,8 +132,8 @@ $hora_actual = date('h:i A'); // Hora en formato 12 horas con AM/PM
             <p><?= htmlspecialchars($observacion) ?></p>
         </div>
         <div class="fecha-hora">
-            <p><strong>Fecha:</strong> <?= $fecha_actual ?></p>
-            <p><strong>Hora:</strong> <?= $hora_actual ?></p>
+            <p><strong>Fecha:</strong> <?= htmlspecialchars($fecha_actual) ?></p>
+            <p><strong>Hora:</strong> <?= htmlspecialchars($hora_actual) ?></p>
         </div>
     </div>
 </body>
